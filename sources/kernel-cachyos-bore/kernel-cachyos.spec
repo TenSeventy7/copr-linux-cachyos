@@ -134,6 +134,8 @@ Patch1:         %{_patch_src}/misc/dkms-clang.patch
 Patch2:         https://raw.githubusercontent.com/CachyOS/copr-linux-cachyos/refs/heads/master/sources/patches/kernel-el9-ar-thin.patch
 %endif
 
+Patch3:         https://raw.githubusercontent.com/TenSeventy7/copr-linux-cachyos/refs/heads/master/sources/patches/acer-wmi-ext-driver.patch
+
 %if %{_build_nv}
 Patch10:        %{_patch_src}/misc/nvidia/0001-Enable-atomic-kernel-modesetting-by-default.patch
 %endif
