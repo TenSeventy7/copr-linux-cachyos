@@ -1,6 +1,6 @@
 %global _default_patch_fuzz 2
-%global commitdate 20260612
-%global commit 7b92cc420fbb08a006cb05eb027f31915f562daa
+%global commitdate 20260717
+%global commit a2864db36d940733c93790513ec8f107d9bff10b
 %global revision 1
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
@@ -11,7 +11,7 @@
 %endif
 
 Name:           scx-scheds-git
-Version:        1.1.1.%{commitdate}.%{revision}.git.%{shortcommit}
+Version:        1.1.2.%{commitdate}.%{revision}.git.%{shortcommit}
 Release:        1%{?dist}
 Summary:        Sched_ext Schedulers and Tools
 
@@ -36,6 +36,7 @@ BuildRequires:  systemd
 BuildRequires:  bpftool
 BuildRequires:  protobuf-compiler
 BuildRequires:  libseccomp-devel
+BuildRequires: openssl-devel
 Requires:  elfutils-libelf
 Requires:  libseccomp
 Requires:  protobuf
@@ -65,12 +66,11 @@ cargo fetch --locked
 cargo build \
      --release \
      --frozen \
-     --all-features \
      --workspace \
      --exclude scx_rlfifo \
      --exclude scx_mitosis \
      --exclude xtask \
-     --exclude scxcash \
+     --exclude scx_characterize \
      --exclude vmlinux_docify \
      --exclude scx_arena_selftests
 
